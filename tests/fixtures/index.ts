@@ -1,8 +1,8 @@
 import { test } from '@playwright/test';
 import { Application } from '../../src/app/Application';
-import { parfumSection } from '../test-data/data';
+import { parfumSection } from '../../src/constants/menu-sections';
 
-export const anonymousUserFixture = test.extend<{ app: Application }>({
+export const anonymousBuyerFixture = test.extend<{ app: Application }>({
     app: async ({ page }, use) => {
         const app = new Application(page);
         await app.landingPage.open();

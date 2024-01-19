@@ -11,6 +11,12 @@ export class LandingPage extends BasePage {
     readonly carousel = this.page.locator('main div[class*="douglas-swiper-carousel--ssr-first-image-fix"]');
 
     @step()
+    async open(path?: string) {
+        await this.page.goto(path ?? this.pagePath);
+        await this.expectLoaded();
+    }
+
+    @step()
     async expectLoaded() {
         await expect(this.header, 'Expect Header is visible').toBeVisible();
         await expect(this.carousel, 'Expect Carousel is loaded').toBeVisible();
