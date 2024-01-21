@@ -1,4 +1,4 @@
-import { BasePage } from '../BaseClasses';
+import { BasePage } from '../base-classes';
 import { step } from '../../util/reporter/step';
 import { expect } from '@playwright/test';
 import { ProductSelectComponent } from '../components/product-select.component';
@@ -29,13 +29,17 @@ export class ParfumPage extends BasePage {
 
     @step()
     async expectEyeCatcherProductsAppear(type: string) {
-        const eyeCatcherElements = (await (await this.getEyeCatcherElementsByType(type)).all());
-        expect(eyeCatcherElements.length).toBeGreaterThan(this.minimalYyeCatcherElementsNumber);
-        const assertionPromises = eyeCatcherElements
+        const visibleEyeCatcherElements = (await (await this.getEyeCatcherElementsByType(type)).all()).filter(element => {
+            return element.isVisible();
+        });
+        expect(visibleEyeCatcherElements.length, `Expect products with special offer type ${type} to appear`)
+            .toBeGreaterThan(this.minimalYyeCatcherElementsNumber);
+        const assertionPromises = visibleEyeCatcherElements
             .map(async (eyeCatcherElement) => expect(eyeCatcherElement).toBeVisible());
         await Promise.all(assertionPromises);
     }
 
+    @step()
     async getEyeCatcherElementsByType(type: string) {
         return this.productTile.locator('[data-testid="product-eyecatcher"]',{ hasText: type });
     }

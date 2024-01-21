@@ -1,4 +1,4 @@
-import { PageHolder } from './BaseClasses';
+import { PageHolder } from './base-classes';
 import { LandingPage } from './pages/landing.page';
 import { ParfumPage } from './pages/parfum.page';
 

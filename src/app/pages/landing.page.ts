@@ -1,4 +1,4 @@
-import { BasePage } from '../BaseClasses';
+import { BasePage } from '../base-classes';
 import { step } from '../../util/reporter/step';
 import { expect } from '@playwright/test';
 
@@ -9,12 +9,6 @@ export class LandingPage extends BasePage {
     readonly header = this.page.locator('header');
     readonly acceptAllCookiesButton = this.page.getByRole('button', { name: 'Alle erlauben' });
     readonly carousel = this.page.locator('main div[class*="douglas-swiper-carousel--ssr-first-image-fix"]');
-
-    @step()
-    async open(path?: string) {
-        await this.page.goto(path ?? this.pagePath);
-        await this.expectLoaded();
-    }
 
     @step()
     async expectLoaded() {
@@ -33,5 +27,6 @@ export class LandingPage extends BasePage {
         await this.page
             .locator('.navigation-main-entry a[type="nav-heading"]', { hasText: menuItemName })
             .click();
+        await this.page.mouse.move(this.page.viewportSize()!.width/2, this.page.viewportSize()!.height/2);
     }
 }
