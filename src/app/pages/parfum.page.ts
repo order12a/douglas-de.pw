@@ -34,9 +34,6 @@ export class ParfumPage extends BasePage {
         });
         expect(visibleEyeCatcherElements.length, `Expect products with special offer type ${type} to appear`)
             .toBeGreaterThan(this.minimalYyeCatcherElementsNumber);
-        const assertionPromises = visibleEyeCatcherElements
-            .map(async (eyeCatcherElement) => expect(eyeCatcherElement).toBeVisible());
-        await Promise.all(assertionPromises);
     }
 
     @step()
