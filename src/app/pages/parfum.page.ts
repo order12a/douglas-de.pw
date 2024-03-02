@@ -25,6 +25,7 @@ export class ParfumPage extends BasePage {
             console.error(`Could not clear filters. Make sure at least one filter is enabled`);
         }
         await this.page.waitForLoadState('domcontentloaded');
+        await expect(this.clearAllFiltersButton).toHaveCount(0);
     }
 
     @step()

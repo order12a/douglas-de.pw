@@ -8,7 +8,7 @@ export class LandingPage extends BasePage {
 
     readonly header = this.page.locator('header');
     readonly acceptAllCookiesButton = this.page.getByRole('button', { name: 'Alle erlauben' });
-    readonly carousel = this.page.locator('main div[class*="douglas-swiper-carousel--ssr-first-image-fix"]');
+    readonly carousel = this.page.locator('div[class*="douglas-swiper-carousel--ssr-first-image-fix"]');
 
     @step()
     async expectLoaded() {
