@@ -7,6 +7,8 @@ export class LandingPage extends BasePage {
     public pagePath = '/';
 
     readonly header = this.page.locator('header');
+    // TODO extract cookie dialog actions into separate module
+    readonly acceptCookieHeader = this.page.getByText('Privatsphäre-Einstellungen');
     readonly acceptAllCookiesButton = this.page.getByRole('button', { name: 'Alle erlauben' });
     readonly carousel = this.page.locator('div[class*="douglas-swiper-carousel--ssr-first-image-fix"]');
 

@@ -23,7 +23,7 @@ export const tearDown = () => {
     })
 }
 
-export const clearFilters = () => {
+export const    clearFilters = () => {
     test.afterEach('Clear filters', async () => {
         await app?.parfumPage.clearAllFilters();
     })

@@ -9,6 +9,7 @@
     "pretest": "npm run clean",
     "test": "npx playwright test",
     "test-fixtures": "npx playwright test parfum-select.with-fixture.spec.ts",
+    "test-locator-handler": "npx playwright test cookie-handler.spec.ts",
     "test--hooks": "npx playwright test parfum-select.with-hooks.spec.ts",
     "test-open-ui": "npx playwright test --ui",
     "test-chrome": "npx playwright test --project=chromium",
@@ -27,7 +28,7 @@
   "author": "Volodymyr Uroshliev",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "1.41.0",
+    "@playwright/test": "^1.42.1",
     "@types/node": "^20.11.5",
     "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@typescript-eslint/parser": "^6.19.0",
